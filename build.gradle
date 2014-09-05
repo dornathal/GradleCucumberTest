@@ -1,35 +1,13 @@
+apply plugin: 'java'
+
 repositories {
     mavenCentral()
 }
-
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath "com.github.samueltbrown:gradle-cucumber-plugin:0.7"
-    }
-}
-apply plugin: 'idea'
-apply plugin: "com.github.samueltbrown.cucumber"
 
 version = '1.0'
 
 dependencies {
     testCompile 'junit:junit:4.11'
-    cucumberCompile 'info.cukes:cucumber-junit:1.1.8'
-    cucumberCompile 'info.cukes:cucumber-picocontainer:1.1.8'
-}
-
-cucumber {
-    tags = []
-    monochrome = true
-    strict = false
-    dryRun = false
-}
-
-idea {
-    module {
-        testSourceDirs += file('src/cucumber/java')
-    }
+    testCompile 'info.cukes:cucumber-junit:1.1.8'
+    testCompile 'info.cukes:cucumber-picocontainer:1.1.8'
 }
